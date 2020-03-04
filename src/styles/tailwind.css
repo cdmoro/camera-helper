@@ -1,6 +1,5 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
 body {
     margin: 0;
@@ -12,9 +11,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.camera {
-    /* margin-top: 50px; */
-}
+/* .camera {
+    margin-top: 50px;
+} */
 
 .camera .body {
     background: #333;
@@ -46,7 +45,7 @@ body {
     width: 151px;
     height: 151px;
     text-align: center;
-    background-image: url(./assets/aperture.png), radial-gradient(circle, rgba(103,103,103,1) 10%, rgba(37,37,37,1) 60%);
+    background-image: url(../assets/aperture.png), radial-gradient(circle, rgba(103,103,103,1) 10%, rgba(37,37,37,1) 60%);
     background-color: #373737;
     border-radius: 50%;
     transition: transform ease .25s;
@@ -93,3 +92,5 @@ button.active {
 button ~ button {
     margin-left: .5rem;
 }
+
+@tailwind utilities;

@@ -19,8 +19,8 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
-    "build:css": "postcss src/styles/tailwind.css -o src/index.css",
-    "watch:css": "postcss src/styles/tailwind.css -o src/index.css -w",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/index.css",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/index.css -w",
     "start": "npm run watch:css & react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
