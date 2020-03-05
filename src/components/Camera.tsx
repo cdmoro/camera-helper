@@ -1,14 +1,20 @@
 import React, { FC, useState, useEffect, ChangeEvent } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { brightnessFactor } from '../utils/brightnessFactor'
 import Grid from './Grid';
 import Controls from './Controls';
+import { AppState } from '../redux';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
     const [image, setImage] = useState('https://picsum.photos/300/225');
     const [showGrid, setShowGrid] = useLocalStorage('show-grid', false)
+    const { iso, aperture, shutter } = useSelector((state: AppState) => ({
+      iso: state.iso,
+      aperture: state.aperture,
+      shutter: state.shutter
+    }))
 
     useEffect(() => {
         const getBrightnessFactor = async (image: string) => {
@@ -43,6 +49,9 @@ const Camera: FC = () => {
                     className="rounded-sm"
                     src={image}
                     alt="Camera screen preview"
+                    style={{
+                      filter: `brightness(${iso + 1}) blur(${shutter}px)`
+                    }}
                   />
                   <Grid show={showGrid} />
                 </div>

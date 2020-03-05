@@ -31,8 +31,26 @@
     clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }
 
+.level {
+    width: 12.1rem;
+}
+
+.level_min::before,
+.level_min::after {
+    position: absolute;
+}
+
+.level_min::after {
+    content: "-";
+}
+
+.level_min::before {
+    content: "+";
+}
+
 .level__mark {
     transition: transform ease .25s;
+    clip-path: polygon(50% 0%, 100% 38%, 100% 100%, 0 100%, 0% 38%);
 }
 
 body {

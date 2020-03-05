@@ -1,26 +1,33 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, ChangeEvent } from 'react'
 
 interface Props {
     label: string,
-    initialValue?: string,
-    values: string[]
+    initialValue?: number,
+    values: string[],
+    onChange?: (value: number) => void
 }
 
-const RangeControl: FC<Props> = ({ label, initialValue = '0', values }) => {
+const RangeControl: FC<Props> = ({ label, initialValue = 0, values, onChange = value => {} }) => {
     const [value, setValue] = useState(initialValue)
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        const value = parseInt(event.target.value)
+        setValue(value);
+        onChange(value);
+    }
 
     return (
         <div className="text-left text-white">
             <div className="flex justify-between">
                 <label>{ label }</label>
-                <output>{ values[parseInt(value)] }</output>
+                <output>{ values[value] }</output>
             </div>
             <input 
                 type="range" 
                 min="0" 
                 max={values.length - 1} 
                 value={value}
-                onChange={e => setValue(e.target.value)}
+                onChange={handleChange}
             />
         </div>
     )
