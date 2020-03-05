@@ -45,10 +45,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* .camera {
-    margin-top: 50px;
-} */
-
 .camera .body {
     background: #333;
     padding: 1rem;

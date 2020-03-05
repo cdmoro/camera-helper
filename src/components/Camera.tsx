@@ -1,20 +1,13 @@
 import React, { FC, useState, useEffect, ChangeEvent } from 'react'
-import { brightnessFactor } from '../utils/brightnessFactor'
 import { useDispatch } from 'react-redux';
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { brightnessFactor } from '../utils/brightnessFactor'
 import Grid from './Grid';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
     const [image, setImage] = useState('https://picsum.photos/300/225');
-    const [showGrid, setShowGrid] = useState(false)
-
-    useEffect(() => {
-        setShowGrid(JSON.parse(localStorage.getItem('show-grid')!) || false)
-    }, [])
-
-    useEffect(() => {
-        localStorage.setItem('show-grid', JSON.stringify(showGrid))
-    }, [showGrid])
+    const [showGrid, setShowGrid] = useLocalStorage('show-grid', false)
 
     useEffect(() => {
         const getBrightnessFactor = async (image: string) => {
@@ -88,9 +81,6 @@ const Camera: FC = () => {
                 </label> */}
               </div>
             </div>
-            {/* <div className="camera__footer mt-5">
-              <input type="file" onChange={handleImageUpload} />
-            </div> */}
           </div>
         </div>
       </div>
