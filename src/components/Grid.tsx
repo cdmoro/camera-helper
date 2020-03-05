@@ -7,7 +7,7 @@ interface Props {
 const Grid: FC<Props> = ({ show }) => {
     if (show) {
         return (
-            <div className="grid rounded-sm overflow-hidden">
+            <div className="grid rounded-sm overflow-hidden grid-cols-3 grid-rows-3 absolute w-full h-full top-0">
                 { [...Array(9)].map((item, i) => {
                     return (
                         <div 

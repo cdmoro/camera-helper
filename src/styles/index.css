@@ -606,6 +606,48 @@ video {
   }
 }
 
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+.text-shadow-md {
+  text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+.btn-control {
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-bottom-width: 2px;
+  text-transform: uppercase
+}
+
+.btn-control:hover {
+  background-color: #4a5568;
+  --transform-scale-x: 1.1;
+  --transform-scale-y: 1.1
+}
+
+.camera__top {
+  -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.level__mark {
+  transition: transform ease .25s;
+}
+
 body {
   margin: 0;
   background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -695,19 +737,7 @@ button.active {
 }
 
 button ~ button {
-  margin-left: .5rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-  position: absolute;
-  top: 0;
-  height: 225px;
-  width: 300px;
+  margin-top: .5rem;
 }
 
 .sr-only {
@@ -11017,6 +11047,22 @@ button ~ button {
 }
 
 @media (min-width: 640px) {
+  .sm\:text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+  }
+
+  .sm\:text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .sm\:text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .sm\:text-shadow-none {
+    text-shadow: none;
+  }
+
   .sm\:sr-only {
     position: absolute;
     width: 1px;
@@ -21325,6 +21371,22 @@ button ~ button {
 }
 
 @media (min-width: 768px) {
+  .md\:text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+  }
+
+  .md\:text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .md\:text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .md\:text-shadow-none {
+    text-shadow: none;
+  }
+
   .md\:sr-only {
     position: absolute;
     width: 1px;
@@ -31633,6 +31695,22 @@ button ~ button {
 }
 
 @media (min-width: 1024px) {
+  .lg\:text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+  }
+
+  .lg\:text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .lg\:text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .lg\:text-shadow-none {
+    text-shadow: none;
+  }
+
   .lg\:sr-only {
     position: absolute;
     width: 1px;
@@ -41941,6 +42019,22 @@ button ~ button {
 }
 
 @media (min-width: 1280px) {
+  .xl\:text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+  }
+
+  .xl\:text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .xl\:text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .xl\:text-shadow-none {
+    text-shadow: none;
+  }
+
   .xl\:sr-only {
     position: absolute;
     width: 1px;

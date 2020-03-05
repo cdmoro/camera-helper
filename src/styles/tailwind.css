@@ -1,6 +1,40 @@
 @tailwind base;
 @tailwind components;
 
+@responsive {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 15px 30px rgba(0,0,0,0.11), 0 5px 15px rgba(0,0,0,0.08);
+  }
+
+  .text-shadow-none {
+    text-shadow: none;
+  }
+}
+
+.btn-control {
+    @apply rounded-full text-xs py-1 px-3 border-b-2 uppercase
+}
+
+.btn-control:hover {
+    @apply bg-gray-700 scale-110
+}
+
+.camera__top {
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+
+.level__mark {
+    transition: transform ease .25s;
+}
+
 body {
     margin: 0;
     background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -90,19 +124,7 @@ button.active {
 }
 
 button ~ button {
-    margin-left: .5rem;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    position: absolute;
-    top: 0;
-    height: 225px;
-    width: 300px;
+    margin-top: .5rem;
 }
 
 @tailwind utilities;
