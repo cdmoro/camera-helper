@@ -1,7 +1,10 @@
 export const SET_BRIGHTNESS = 'SET_BRIGHTNESS'
 
 export interface ICameraStore {
-    brightness: number
+    brightness: number,
+    iso: string,
+    aperture: string,
+    shutter: string
 }
 
 export interface SetBrightnessAction {

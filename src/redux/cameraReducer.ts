@@ -5,7 +5,10 @@ import {
 } from "./types"
 
 const initialState: ICameraStore = {
-    brightness: 0
+    brightness: 0,
+    iso: '0',
+    aperture: '0',
+    shutter: '0'
 }
 
 export const cameraReducer = (state = initialState, action: AppActions): ICameraStore => {

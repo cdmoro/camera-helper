@@ -5,6 +5,7 @@ import { store } from './redux';
 
 import Camera from './components/Camera';
 import Level from './components/Level';
+import Footer from './components/Footer';
 
 const App: FC = () => {
   return (
@@ -13,9 +14,7 @@ const App: FC = () => {
         <h1 className="text-6xl font-bold text-white text-shadow-md">Camera studio</h1>
         <Camera />
         <Level />
-        <div className="mt-4 text-white">
-          Made with love with React + Tailwindcss
-        </div>
+        <Footer />
       </div>
     </Provider>
   );

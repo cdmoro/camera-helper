@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { brightnessFactor } from '../utils/brightnessFactor'
 import Grid from './Grid';
+import Controls from './Controls';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const Camera: FC = () => {
                 </div>
               </div>
 
-              <div className="camera__controls ml-3 text-left">
+              <div className="camera__controls ml-3 text-left flex flex-col">
                 <button
                   className="btn-control"
                   onClick={() => setShowGrid(!showGrid)}
@@ -71,14 +72,8 @@ const Camera: FC = () => {
                 >
                   Random image
                 </button>
-                {/* <label>
-                  <input
-                    type="checkbox"
-                    checked={showGrid}
-                    onChange={event => setShowGrid(event.target.checked)}
-                  />
-                  Show grid
-                </label> */}
+
+                <Controls />
               </div>
             </div>
           </div>
