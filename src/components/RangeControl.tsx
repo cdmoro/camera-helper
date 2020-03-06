@@ -17,12 +17,13 @@ const RangeControl: FC<Props> = ({ label, initialValue = 0, values, onChange = v
     }
 
     return (
-        <div className="text-left text-white">
+        <div className="text-left">
             <div className="flex justify-between">
                 <label>{ label }</label>
                 <output>{ values[value] }</output>
             </div>
             <input 
+                className="w-full slider"
                 type="range" 
                 min="0" 
                 max={values.length - 1} 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { brightnessFactor } from '../utils/brightnessFactor'
 import Grid from './Grid';
-import Controls from './Controls';
+// import Controls from './Controls';
 import { AppState } from '../redux';
 
 const Camera: FC = () => {
@@ -82,7 +82,7 @@ const Camera: FC = () => {
                   Random image
                 </button>
 
-                <Controls />
+                {/* <Controls /> */}
               </div>
             </div>
           </div>
