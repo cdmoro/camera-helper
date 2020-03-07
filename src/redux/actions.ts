@@ -1,8 +1,19 @@
-import { SET_BRIGHTNESS, SET_ISO, SET_APERTURE, SET_SHUTTER } from "./types";
+import { 
+    SET_BRIGHTNESS, 
+    SET_CORRECTION,
+    SET_ISO, 
+    SET_APERTURE, 
+    SET_SHUTTER 
+} from "./types";
 
 export interface SetBrightnessAction {
     type: typeof SET_BRIGHTNESS,
     brightness: number
+}
+
+export interface SetCorrectionAction {
+    type: typeof SET_CORRECTION,
+    correction: number
 }
 
 export interface SetISOAction {
@@ -22,6 +33,7 @@ export interface SetShutterAction {
 
 export type AppActions = 
     | SetBrightnessAction 
+    | SetCorrectionAction
     | SetISOAction 
     | SetApertureAction 
     | SetShutterAction

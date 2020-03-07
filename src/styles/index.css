@@ -624,19 +624,26 @@ video {
 
 .btn-control {
   border-radius: 9999px;
-  font-size: 0.75rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   border-bottom-width: 2px;
-  text-transform: uppercase
+  border-color: #6b46c1;
+  text-transform: uppercase;
+  background-color: #fff;
+  color: #44337a
 }
 
 .btn-control:hover {
-  background-color: #4a5568;
+  background-color: #44337a;
+  color: #fff;
   --transform-scale-x: 1.1;
   --transform-scale-y: 1.1
+}
+
+.btn-control:active {
+  border-bottom: 0;
 }
 
 .camera__top {
@@ -646,19 +653,48 @@ video {
 
 .level {
   width: 12.1rem;
+  height: 49px;
 }
 
-.level_min::before,
-.level_min::after {
+.level.level--left-overflow::after,
+.level.level--right-overflow::after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  margin-top: 2px;
+}
+
+.level.level--left-overflow::after {
+  transform: translateX(-87px);
+  border-right: 6px solid #000;
+}
+
+.level.level--right-overflow::after {
+  transform: translateX(87px);
+  border-left: 6px solid #000;
+}
+
+.level--left-overflow .level__mark,
+.level--right-overflow .level__mark {
+  display: none;
+}
+
+.level__min::after,
+.level__max::before {
   position: absolute;
 }
 
-.level_min::after {
+.level__min::after {
   content: "-";
+  top: -4px;
 }
 
-.level_min::before {
+.level__max::before {
   content: "+";
+  right: 9.5px;
+  top: -3px;
 }
 
 .level__mark {
@@ -752,7 +788,8 @@ button.active {
 }
 
 button ~ button {
-  margin-top: .5rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 /* input[type="range"]::-moz-range-thumb {

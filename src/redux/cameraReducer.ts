@@ -3,13 +3,15 @@ import {
     SET_BRIGHTNESS, 
     SET_ISO,
     SET_SHUTTER,
-    SET_APERTURE
+    SET_APERTURE,
+    SET_CORRECTION
 } from "./types"
 
 import { AppActions } from "./actions"
 
 const initialState: ICameraStore = {
     brightness: 0,
+    correction: 0,
     iso: 0,
     aperture: 0,
     shutter: 0
@@ -21,6 +23,12 @@ export const cameraReducer = (state = initialState, action: AppActions): ICamera
             return {
                 ...state,
                 brightness: action.brightness
+            }
+        }
+        case SET_CORRECTION: {
+            return {
+                ...state,
+                correction: action.correction
             }
         }
         case SET_ISO: {

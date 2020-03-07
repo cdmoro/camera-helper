@@ -4,12 +4,15 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { brightnessFactor } from '../utils/brightnessFactor'
 import Grid from './Grid';
 // import Controls from './Controls';
-import { AppState } from '../redux';
+import { AppState, SET_BRIGHTNESS, SET_CORRECTION } from '../redux';
+import noise from '../assets/noise.png'
+import Level from './Level';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
-    const [image, setImage] = useState('https://picsum.photos/300/225');
-    const [showGrid, setShowGrid] = useLocalStorage('show-grid', false)
+    const [image, setImage] = useState('https://picsum.photos/300/225')
+    const [brightness, setBrightness] = useState(1)
+    const [showGrid, setShowGrid] = useLocalStorage('show-grid', true)
     const { iso, aperture, shutter } = useSelector((state: AppState) => ({
       iso: state.iso,
       aperture: state.aperture,
@@ -17,15 +20,23 @@ const Camera: FC = () => {
     }))
 
     useEffect(() => {
-        const getBrightnessFactor = async (image: string) => {
-            dispatch({
-                type: 'SET_BRIGHTNESS',
-                brightness: await brightnessFactor(image)
-            })
-        }
+      setBrightness(((iso / 9) + 1) - (aperture / 13))
+      dispatch({
+        type: SET_CORRECTION,
+        correction: brightness
+      })
+    }, [iso, aperture, dispatch, brightness])
 
-        getBrightnessFactor(image)
-    }, [image, dispatch])
+    useEffect(() => {
+      const getBrightnessFactor = async (image: string) => {
+        dispatch({
+          type: SET_BRIGHTNESS,
+          brightness: await brightnessFactor(image)
+        })
+      }
+
+      getBrightnessFactor(image)
+    }, [image])
 
     const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
         const img: File = event.target.files![0]
@@ -34,10 +45,10 @@ const Camera: FC = () => {
 
     return (
       <div className="camera-container">
-        <div className="camera mx-auto" style={{ width: 525 }}>
-          <div className="camera__top bg-gray-800 rounded-t-lg ml-20 flex justify-center items-center" style={{ width: 160, height: 60 }}>
+        <div className="camera mx-auto" style={{ width: 573 }}>
+          {/* <div className="camera__top bg-gray-800 rounded-t-lg ml-20 flex justify-center items-center" style={{ width: 160, height: 60 }}>
                     <div className="rounded-md bg-black w-16 h-10"></div>
-                </div>
+                </div> */}
           <div className="camera__body bg-gray-800 p-4 rounded-lg">
             <div className="camera__body-frame flex">
               <div className="camera__screen-frame border-2 border-black bg-gray-900 rounded-md p-4">
@@ -50,7 +61,15 @@ const Camera: FC = () => {
                     src={image}
                     alt="Camera screen preview"
                     style={{
-                      filter: `brightness(${iso + 1}) blur(${shutter}px)`
+                      filter: `brightness(${brightness}) blur(${((shutter * 3) / 9)}px)`
+                    }}
+                  />
+                  <img
+                    className="absolute h-full w-full top-0"
+                    src={noise}
+                    alt="Noise"
+                    style={{
+                      opacity: iso / 8
                     }}
                   />
                   <Grid show={showGrid} />
@@ -58,35 +77,42 @@ const Camera: FC = () => {
               </div>
 
               <div className="camera__controls ml-3 text-left flex flex-col">
-                <button
-                  className="btn-control"
-                  onClick={() => setShowGrid(!showGrid)}
-                >
-                  {`${showGrid ? "Hide" : "Show"} grid`}
-                </button>
 
-                <button className="btn-control" onClick={() => document.getElementById('img-upload')?.click()}>Upload image</button>
-                <input id="img-upload" type="file" hidden onChange={handleImageUpload} accept="image/*" />
+                <div className="text-white mb-2">
+                  <p>In no way does this page try to be accurate about photography.</p>
+                  <p>I made it for educational purposes and for those who want to understand how to take a good picture.</p>
+                </div>
 
-                <button
-                  className="btn-control"
-                  title="Images provided by picsum.photos!"
-                  onClick={() =>
-                    setImage(
-                      `https://picsum.photos/id/${Math.floor(
-                        Math.random() * 100
-                      )}/300/225`
-                    )
-                  }
-                >
-                  Random image
-                </button>
+                <Level/>
 
                 {/* <Controls /> */}
               </div>
             </div>
           </div>
         </div>
+        <button
+          className="btn-control"
+          onClick={() => setShowGrid(!showGrid)}
+        >
+          {`${showGrid ? "Hide" : "Show"} grid`}
+        </button>
+
+        <button className="btn-control" onClick={() => document.getElementById('img-upload')?.click()}>Upload image</button>
+        <input id="img-upload" type="file" hidden onChange={handleImageUpload} accept="image/*" />
+
+        <button
+          className="btn-control"
+          title="Images provided by picsum.photos!"
+          onClick={() =>
+            setImage(
+              `https://picsum.photos/id/${Math.floor(
+                Math.random() * 100
+              )}/300/225`
+            )
+          }
+        >
+          Random image
+                </button>
       </div>
     )
 }

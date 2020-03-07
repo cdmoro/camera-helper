@@ -20,11 +20,15 @@
 }
 
 .btn-control {
-    @apply rounded-full text-xs py-1 px-3 border-b-2 uppercase
+    @apply rounded-full py-1 px-3 border-b-2 border-purple-700 uppercase bg-white text-purple-900
 }
 
 .btn-control:hover {
-    @apply bg-gray-700 scale-110
+    @apply bg-purple-900 text-white scale-110
+}
+
+.btn-control:active {
+    border-bottom: 0;
 }
 
 .camera__top {
@@ -33,19 +37,48 @@
 
 .level {
     width: 12.1rem;
+    height: 49px;
 }
 
-.level_min::before,
-.level_min::after {
+.level.level--left-overflow::after,
+.level.level--right-overflow::after {
+    content: " ";
+    width: 0; 
+    height: 0; 
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent; 
+    margin-top: 2px;
+}
+
+.level.level--left-overflow::after {
+    transform: translateX(-87px);
+    border-right: 6px solid #000;
+}
+
+.level.level--right-overflow::after {
+    transform: translateX(87px);
+    border-left: 6px solid #000;
+}
+
+.level--left-overflow .level__mark,
+.level--right-overflow .level__mark {
+    display: none;
+}
+
+.level__min::after,
+.level__max::before {
     position: absolute;
 }
 
-.level_min::after {
+.level__min::after {
     content: "-";
+    top: -4px;
 }
 
-.level_min::before {
+.level__max::before {
     content: "+";
+    right: 9.5px;
+    top: -3px;
 }
 
 .level__mark {
@@ -138,7 +171,8 @@ button.active {
 }
 
 button ~ button {
-    margin-top: .5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
 
 /* input[type="range"]::-moz-range-thumb {

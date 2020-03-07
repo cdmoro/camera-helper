@@ -18,8 +18,8 @@ const RangeControl: FC<Props> = ({ label, initialValue = 0, values, onChange = v
 
     return (
         <div className="text-left">
-            <div className="flex justify-between">
-                <label>{ label }</label>
+            <div className="flex justify-between items-center">
+                <h2 className="text-2xl mb-0">{ label }</h2>
                 <output>{ values[value] }</output>
             </div>
             <input 

@@ -13,11 +13,10 @@ const Controls: FC = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className="controls mx-auto" style={{ width: '700px' }}>
-            <h1 className="text-4xl text-white text-shadow-md bold my-3">Photography exposure triangle</h1>
+        <div className="controls mx-auto mt-5" style={{ width: '700px' }}>
+            {/* <h1 className="text-4xl text-white text-shadow-md bold my-3">Give it a shot, cowboy!</h1> */}
             <div className="flex text-left">
                 <Card 
-                    title="ISO"
                     description="Determines how sensitive your image sensor is. Hight ISO is more sensitive to light, but adds grain."
                 >
                     <RangeControl
@@ -30,7 +29,6 @@ const Controls: FC = () => {
                     />
                 </Card>
                 <Card 
-                    title="Aperture"
                     description="What is in or out focus. Determines the amount of light that gets in."
                 >
                     <RangeControl
@@ -43,7 +41,6 @@ const Controls: FC = () => {
                     />
                 </Card>
                 <Card 
-                    title="Shutter speed"
                     description="The lenght of time when the film or digital sensor inside the camera is exposed to light."
                 >
                     <RangeControl
