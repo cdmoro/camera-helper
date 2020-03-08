@@ -709,6 +709,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif;
+  /* font-family: 'Dancing Script', cursive; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -808,6 +809,31 @@ input[type="range"]::-moz-range-track {
     border-radius: 2px;
     border: 1px solid #FFF;
 } */
+
+.github-corner:hover .octo-arm {
+  animation:octocat-wave 560ms ease-in-out
+}
+
+@keyframes octocat-wave {
+  0%, 100% { transform: rotate(0)
+  }
+
+  20%,60% { transform:rotate(-25deg)
+  }
+
+  40%,80% { transform:rotate(10deg)
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation:none
+  }
+
+  .github-corner .octo-arm {
+    animation:octocat-wave 560ms ease-in-out
+  }
+}
 
 .sr-only {
   position: absolute;
@@ -3889,6 +3915,10 @@ input[type="range"]::-moz-range-track {
 
 .font-mono {
   font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.font-dancing {
+  font-family: Dancing Script, cursive;
 }
 
 .font-hairline {
@@ -14212,6 +14242,10 @@ input[type="range"]::-moz-range-track {
 
   .sm\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .sm\:font-dancing {
+    font-family: Dancing Script, cursive;
   }
 
   .sm\:font-hairline {
@@ -24538,6 +24572,10 @@ input[type="range"]::-moz-range-track {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .md\:font-dancing {
+    font-family: Dancing Script, cursive;
+  }
+
   .md\:font-hairline {
     font-weight: 100;
   }
@@ -34862,6 +34900,10 @@ input[type="range"]::-moz-range-track {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .lg\:font-dancing {
+    font-family: Dancing Script, cursive;
+  }
+
   .lg\:font-hairline {
     font-weight: 100;
   }
@@ -45184,6 +45226,10 @@ input[type="range"]::-moz-range-track {
 
   .xl\:font-mono {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  .xl\:font-dancing {
+    font-family: Dancing Script, cursive;
   }
 
   .xl\:font-hairline {

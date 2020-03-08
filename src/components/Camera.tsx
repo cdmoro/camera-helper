@@ -36,7 +36,7 @@ const Camera: FC = () => {
       }
 
       getBrightnessFactor(image)
-    }, [image])
+    }, [image, dispatch])
 
     const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
         const img: File = event.target.files![0]

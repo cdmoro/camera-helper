@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'dancing': 'Dancing Script, cursive'
+      }
+    },
   },
   variants: {},
   plugins: [],
