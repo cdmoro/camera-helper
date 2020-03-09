@@ -793,23 +793,6 @@ button ~ button {
   margin-left: 1rem;
 }
 
-/* input[type="range"]::-moz-range-thumb {
-    border: 0px solid  #ff1e00;
-    height: 21px;
-    width: 14px;
-    border-radius: 0px;
-    background:#FFF;
-    cursor: pointer;
-}
-input[type="range"]::-moz-range-track {
-    width: 100%;
-    height: 19px;
-    cursor: pointer;
-    background: #2d3748;
-    border-radius: 2px;
-    border: 1px solid #FFF;
-} */
-
 .github-corner:hover .octo-arm {
   animation:octocat-wave 560ms ease-in-out
 }
