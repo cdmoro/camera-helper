@@ -1,6 +1,7 @@
 {
   "name": "camera-helper-react",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
@@ -28,7 +29,8 @@
     "start": "npm run watch:css & react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "./deploy.sh"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -33,23 +33,27 @@ const Footer: FC = () => {
           icon={faTwitter}
           className="text-blue-500"
           size="2x"
+          title="Follow me on Twitter!"
         />
         <IconButton
           href="https://www.linkedin.com/in/cdbonadeo/"
           icon={faLinkedinIn}
           className="text-white"
+          title="View my profile on Linkedin!"
           size="2x"
         />
         <IconButton
           href="https://www.facebook.com/cdbonadeo"
           icon={faFacebook}
           className="text-blue-700"
+          title="Follow me on Facebook!"
           size="2x"
         />
         <IconButton
           href="mailto:carlosbonadeo@gmail.com"
           className="text-white"
           icon={faEnvelope}
+          title="Send me an email!"
           size="2x"
         />
       </div>
@@ -60,14 +64,16 @@ interface IconButtonProps {
     className?: string,
     href: string,
     size?: FontAwesomeIconProps['size'],
-    icon: IconDefinition
+    icon: IconDefinition,
+    title?: string
 }
 
-const IconButton: FC<IconButtonProps> = ({href, icon, size = 'lg', className}) => {
+const IconButton: FC<IconButtonProps> = ({href, icon, size = 'lg', className, title}) => {
     return (
       <a
         className="mx-2"
         href={href}
+        title={title}
         target="_blank"
         rel="noopener noreferrer"
       >

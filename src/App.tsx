@@ -22,6 +22,8 @@ const App: FC = () => {
           href="https://github.com/cdmoro/camera-helper-react" 
           className="github-corner" 
           aria-label="View source on GitHub"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <GithubLogo />
         </a>
