@@ -5,12 +5,17 @@ import {
     shutterSpeed
 } from '../types/values.d'
 import RangeControl from './RangeControl'
-import { useDispatch } from 'react-redux'
-import { SET_ISO, SET_APERTURE, SET_SHUTTER } from '../redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { SET_ISO, SET_APERTURE, SET_SHUTTER, AppState } from '../redux'
 import Card from './Card'
 
 const Controls: FC = () => {
     const dispatch = useDispatch();
+    const { iso, aperture, shutter } = useSelector((state: AppState) => ({
+      iso: state.iso,
+      aperture: state.aperture,
+      shutter: state.shutter
+    }))
 
     return (
       <div className="controls mt-5">
@@ -19,6 +24,7 @@ const Controls: FC = () => {
           <Card description="Determines how sensitive your image sensor is. Hight ISO is more sensitive to light, but adds grain.">
             <RangeControl
               label="ISO"
+              initialValue={iso}
               values={isoSensitivity}
               onChange={value =>
                 dispatch({
@@ -31,6 +37,7 @@ const Controls: FC = () => {
           <Card description="What is in or out focus. Determines the amount of light that gets in.">
             <RangeControl
               label="Aperture"
+              initialValue={aperture}
               values={apertureDiaphragm}
               onChange={value =>
                 dispatch({
@@ -43,6 +50,7 @@ const Controls: FC = () => {
           <Card description="The lenght of time when the film or digital sensor inside the camera is exposed to light.">
             <RangeControl
               label="Shutter"
+              initialValue={shutter}
               values={shutterSpeed}
               onChange={value =>
                 dispatch({

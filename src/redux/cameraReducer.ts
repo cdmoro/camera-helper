@@ -13,7 +13,7 @@ const initialState: ICameraStore = {
     brightness: 0,
     correction: 0,
     iso: 0,
-    aperture: 0,
+    aperture: 3,
     shutter: 0
 }
 

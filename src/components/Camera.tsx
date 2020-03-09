@@ -10,7 +10,7 @@ import Level from './Level';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
-    const [image, setImage] = useState('https://picsum.photos/300/225')
+    const [image, setImage] = useState('')
     const [brightness, setBrightness] = useState(1)
     const [showGrid, setShowGrid] = useLocalStorage('show-grid', true)
     const { iso, aperture, shutter } = useSelector((state: AppState) => ({
@@ -18,6 +18,10 @@ const Camera: FC = () => {
       aperture: state.aperture,
       shutter: state.shutter
     }))
+
+    useEffect(() => {
+      setImage('https://picsum.photos/300/225')
+    }, [])
 
     useEffect(() => {
       setBrightness(((iso / 9) + 1) - (aperture / 13))
@@ -45,23 +49,35 @@ const Camera: FC = () => {
 
     return (
       <div className="camera-container">
-        <div className="camera mx-auto" style={{ width: 573 }}>
+        <div className="camera mx-auto" style={{ maxWidth: 573 }}>
           {/* <div className="camera__top bg-gray-800 rounded-t-lg ml-20 flex justify-center items-center" style={{ width: 160, height: 60 }}>
                     <div className="rounded-md bg-black w-16 h-10"></div>
                 </div> */}
-          <div className="camera__body bg-gray-800 p-4 rounded-lg">
-            <div className="camera__body-frame flex">
+          <div className="camera__body md:bg-gray-800 p-4 md:pt-4 pt-0 rounded-lg">
+            <div className="camera__body-frame flex flex-col md:flex-row">
               <div className="camera__screen-frame border-2 border-black bg-gray-900 rounded-md p-4">
                 <div
-                  className="camera__screen overflow-hidden relative"
+                  className="camera__screen overflow-hidden relative rounded-sm mx-auto"
                   style={{ width: 300, height: 225 }}
                 >
                   <img
-                    className="rounded-sm"
                     src={image}
                     alt="Camera screen preview"
                     style={{
-                      filter: `brightness(${brightness}) blur(${((shutter * 3) / 9)}px)`
+                      filter: `brightness(${brightness}) blur(${aperture / 9}px)`,
+                    }}
+                    // style={{
+                    //   filter: `brightness(${brightness}) blur(${((shutter * 3) / 9)}px)`
+                    // }}
+                  />
+                  <img
+                    className="absolute top-0 transition ease-in-out duration-100"
+                    src={image}
+                    alt="Shutter phantom effect"
+                    style={{
+                      filter: `blur(1px)`,
+                      transform: 'translate(2px, 2px)',
+                      opacity: shutter / 15
                     }}
                   />
                   <img
@@ -76,16 +92,14 @@ const Camera: FC = () => {
                 </div>
               </div>
 
-              <div className="camera__controls ml-3 text-left flex flex-col">
+              <div className="camera__controls md:ml-3 text-left flex flex-col">
 
-                <div className="text-white mb-2">
+                <div className="text-white md:mb-2 mt-3 md:mt-0 text-sm md:text-base hidden md:block">
                   <p>In no way does this page try to be accurate about photography.</p>
                   <p>I made it for educational purposes and for those who want to understand how to take a good picture.</p>
                 </div>
 
                 <Level/>
-
-                {/* <Controls /> */}
               </div>
             </div>
           </div>
