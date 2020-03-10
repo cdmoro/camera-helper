@@ -5,8 +5,8 @@ interface Props {
 }
 
 const Grid: FC<Props> = ({ show }) => {
-    if (show) {
-        return (
+    return show ?
+        (
             <div className="grid rounded-sm overflow-hidden grid-cols-3 grid-rows-3 absolute w-full h-full top-0">
                 { [...Array(9)].map((item, i) => {
                     return (
@@ -18,9 +18,7 @@ const Grid: FC<Props> = ({ show }) => {
                 }) }
             </div>
         )
-    } else{
-        return null
-    }
+        : null
 }
 
 export default Grid

@@ -6,8 +6,7 @@ import { faReact, faTwitter, faLinkedinIn, faFacebook } from  '@fortawesome/free
 const Footer: FC = () => {
     return (
       <div
-        className="mt-1 md:mt-6 text-white bg-gray-800 p-3 border-b-2 border-gray-900 rounded-md md:mx-auto mb-2 md:mb-0 md:px-10 md:w-auto md:inline-block block mx-2"
-        // style={{ width: "30rem" }}
+        className="mt-1 md:mt-6 text-white bg-gray-800 p-3 border-b-2 border-gray-900 rounded-md md:mx-auto mb-24 md:mb-2 md:px-10 md:w-auto md:inline-block block mx-2"
       >
         <p>
           Made with

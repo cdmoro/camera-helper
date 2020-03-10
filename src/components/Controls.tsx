@@ -18,7 +18,7 @@ const Controls: FC = () => {
     }))
 
     return (
-      <div className="controls mt-5">
+      <div className="controls md:mt-5">
         {/* <h1 className="text-4xl text-white text-shadow-md bold my-3">Give it a shot, cowboy!</h1> */}
         <div className="flex text-left justify-center md:flex-row flex-col">
           <Card description="Determines how sensitive your image sensor is. Hight ISO is more sensitive to light, but adds grain.">

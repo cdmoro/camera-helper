@@ -20,11 +20,17 @@
 }
 
 .btn-control {
-    @apply rounded-full py-1 px-3 border-b-2 border-purple-700 uppercase bg-white text-purple-900
+    @apply flex flex-col text-sm items-center rounded-md py-1 px-3 uppercase bg-white text-purple-900 transition-colors duration-200 ease-in-out
 }
 
 .btn-control:hover {
-    @apply bg-purple-900 text-white scale-110
+    @apply bg-purple-900 text-white
+}
+
+@screen md {
+  .btn-control {
+    @apply border-b-2 border-purple-700 mx-2;
+  }
 }
 
 .btn-control:active {
@@ -169,10 +175,10 @@ button.active {
     color: #667eea;
 }
 
-button ~ button {
+/* button ~ button {
     margin-top: 1rem;
     margin-left: 1rem;
-}
+} */
 
 .github-corner:hover .octo-arm {
     animation:octocat-wave 560ms ease-in-out

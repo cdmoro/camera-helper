@@ -20,7 +20,7 @@ const RangeControl: FC<Props> = ({ label, initialValue = 0, values, onChange = v
         <div className="text-left">
             <div className="flex justify-between items-center">
                 <h2 className="font-dancing font-bold text-2xl mb-0">{ label }</h2>
-                <output className="bg-gray-800 rounded text-white py-1 px-2">{ values[value] }</output>
+                <output className="bg-purple-900 rounded text-white py-1 px-2 text-sm">{ values[value] }</output>
             </div>
             <input 
                 className="w-full slider"

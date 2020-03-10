@@ -1,11 +1,13 @@
-import React, { FC, useState, useEffect, ChangeEvent } from 'react'
+import React, { FC, useState, useEffect, ChangeEvent } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFolderOpen, faCamera, faRandom, faBorderAll, faBorderNone } from "@fortawesome/free-solid-svg-icons"
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { brightnessFactor } from '../utils/brightnessFactor'
+import { brightnessFactor } from '../utils/brightnessFactor';
 import Grid from './Grid';
-// import Controls from './Controls';
 import { AppState, SET_BRIGHTNESS, SET_CORRECTION } from '../redux';
-import noise from '../assets/noise.png'
+import noise from '../assets/noise.png';
 import Level from './Level';
 
 const Camera: FC = () => {
@@ -104,29 +106,49 @@ const Camera: FC = () => {
             </div>
           </div>
         </div>
-        <button
-          className="btn-control"
-          onClick={() => setShowGrid(!showGrid)}
+
+        <div 
+          className="fixed bottom-0 flex left-0 right-0 bg-white justify-around shadow-md md:static md:bg-transparent md:shadow-none md:justify-center md:mt-3 p-2 md:p-0"
         >
-          {`${showGrid ? "Hide" : "Show"} grid`}
-        </button>
 
-        <button className="btn-control" onClick={() => document.getElementById('img-upload')?.click()}>Upload image</button>
-        <input id="img-upload" type="file" hidden onChange={handleImageUpload} accept="image/*" />
+          <button
+            className="btn-control"
+            onClick={() => setShowGrid(!showGrid)}
+          >
+            <FontAwesomeIcon className="fa-2x md:fa-1x" icon={showGrid ? faBorderNone : faBorderAll} />
+            {`${showGrid ? "Hide" : "Show"} grid`}
+          </button>
 
-        <button
-          className="btn-control"
-          title="Images provided by picsum.photos!"
-          onClick={() =>
-            setImage(
-              `https://picsum.photos/id/${Math.floor(
-                Math.random() * 100
-              )}/300/225`
-            )
+          <button className="btn-control" onClick={() => document.getElementById('img-upload')?.click()}>
+            <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faFolderOpen} />
+            Open image
+          </button>
+          <input id="img-upload" type="file" hidden onChange={handleImageUpload} accept="image/*" />
+
+          { /Mobi|Android/i.test(navigator.userAgent) &&
+            <>
+              <button className="btn-control" onClick={() => document.getElementById('take-picture')?.click()}>
+                <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faCamera} />
+                Take a picture
+              </button>
+              <input id="take-picture" type="file" hidden onChange={handleImageUpload} accept="image/*;capture=camera"></input>
+            </>
           }
-        >
-          Random image
-                </button>
+
+          <button
+            className="btn-control"
+            onClick={() =>
+              setImage(
+                `https://picsum.photos/id/${Math.floor(
+                  Math.random() * 100
+                )}/300/225`
+              )
+            }
+          >
+            <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faRandom} />
+            Random image
+          </button>
+        </div>
       </div>
     )
 }
