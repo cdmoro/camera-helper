@@ -18,7 +18,7 @@ const Footer: FC = () => {
           by Carlos Bonadeo
         </p>
         <p>
-          and
+          with
           <IconButton
             href="https://reactjs.org/"
             icon={faReact}
