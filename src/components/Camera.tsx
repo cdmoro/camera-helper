@@ -108,7 +108,7 @@ const Camera: FC = () => {
         </div>
 
         <div 
-          className="fixed bottom-0 flex left-0 right-0 bg-white justify-around shadow-md md:static md:bg-transparent md:shadow-none md:justify-center md:mt-3 p-2 md:p-0"
+          className="border-t-2 border-purple-600 md:border-none fixed bottom-0 flex left-0 right-0 bg-white justify-around md:static md:bg-transparent md:shadow-none md:justify-center md:mt-3 p-2 md:p-0 z-10 md:z-0"
         >
 
           <button
