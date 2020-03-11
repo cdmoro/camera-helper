@@ -6,9 +6,23 @@ import { faReact, faTwitter, faLinkedinIn, faFacebook } from  '@fortawesome/free
 const Footer: FC = () => {
     return (
       <div
-        className="mt-1 md:mt-6 text-white bg-gray-800 p-3 border-b-2 border-gray-900 rounded-md md:mx-auto mb-24 md:mb-2 md:px-10 md:w-auto md:inline-block block mx-2"
+        className="
+          md:mt-1 
+          md:mt-6 
+          text-white 
+          bg-gray-800 
+          p-3 
+          border-b-2 
+          border-gray-900 
+          rounded-md 
+          md:mx-auto 
+          md:mb-24 
+          md:mb-2 
+          md:px-10 
+          md:inline-block
+          mx-2"
       >
-        <p>
+        <p className="mb-2 md:mb-0">
           Made with
           <FontAwesomeIcon
             size="lg"
@@ -17,7 +31,7 @@ const Footer: FC = () => {
           />
           by Carlos Bonadeo
         </p>
-        <p>
+        <p className="hidden md:block">
           with
           <IconButton
             href="https://reactjs.org/"
@@ -26,7 +40,7 @@ const Footer: FC = () => {
           />
           + Typescript + Tailwindcss
         </p>
-        <p className="mt-3 mb-2">For congratulations, threats or greetings</p>
+        <p className="mt-3 mb-2 hidden md:block">For congratulations, threats or greetings</p>
         <IconButton
           href="https://twitter.com/CarlosBonadeo"
           icon={faTwitter}

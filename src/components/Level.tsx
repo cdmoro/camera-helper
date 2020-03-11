@@ -20,7 +20,7 @@ const Level: FC = () => {
     return (
         <div 
             ref={levelRef}
-            className="level rounded-sm bg-green-200 p-1 mt-3 overflow-hidden text-center mx-auto flex flex-col items-center"
+            className="level rounded-sm md:bg-green-200 p-1 md:mt-3 py-1 overflow-hidden text-center mx-auto flex flex-col items-center"
         >
             <div className="level__values relative">
                 <code>

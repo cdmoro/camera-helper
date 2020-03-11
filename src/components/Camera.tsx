@@ -56,8 +56,8 @@ const Camera: FC = () => {
                     <div className="rounded-md bg-black w-16 h-10"></div>
                 </div> */}
           <div className="camera__body md:bg-gray-800 p-4 md:pt-4 pt-0 rounded-lg">
-            <div className="camera__body-frame flex flex-col md:flex-row">
-              <div className="camera__screen-frame border-2 border-black bg-gray-900 rounded-md p-4">
+            <div className="camera__body-frame flex flex-col md:flex-row bg-white md:bg-transparent rounded-sm shadow-sm">
+              <div className="camera__screen-frame md:border-2 border-1 border-black md:bg-gray-900 md:rounded-md rounded-sm p-4 pb-0 md:pb-4">
                 <div
                   className="camera__screen overflow-hidden relative rounded-sm mx-auto"
                   style={{ width: 300, height: 225 }}
@@ -113,23 +113,32 @@ const Camera: FC = () => {
 
           <button
             className="btn-control"
+            title="Show/hide grid"
             onClick={() => setShowGrid(!showGrid)}
           >
             <FontAwesomeIcon className="fa-2x md:fa-1x" icon={showGrid ? faBorderNone : faBorderAll} />
-            {`${showGrid ? "Hide" : "Show"} grid`}
+            <span className="hidden md:inline-block">{`${showGrid ? "Hide" : "Show"} grid`}</span>
           </button>
 
-          <button className="btn-control" onClick={() => document.getElementById('img-upload')?.click()}>
+          <button 
+            className="btn-control" 
+            title="Open image"
+            onClick={() => document.getElementById('img-upload')?.click()}
+          >
             <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faFolderOpen} />
-            Open image
+            <span className="hidden md:inline-block">Open image</span>
           </button>
           <input id="img-upload" type="file" hidden onChange={handleImageUpload} accept="image/*" />
 
           { /Mobi|Android/i.test(navigator.userAgent) &&
             <>
-              <button className="btn-control" onClick={() => document.getElementById('take-picture')?.click()}>
+              <button 
+                className="btn-control" 
+                title="Take a picture"
+                onClick={() => document.getElementById('take-picture')?.click()}
+              >
                 <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faCamera} />
-                Take a picture
+                <span className="hidden md:inline-block">Take a picture</span>
               </button>
               <input id="take-picture" type="file" hidden onChange={handleImageUpload} accept="image/*;capture=camera"></input>
             </>
@@ -137,6 +146,7 @@ const Camera: FC = () => {
 
           <button
             className="btn-control"
+            title="Random image"
             onClick={() =>
               setImage(
                 `https://picsum.photos/id/${Math.floor(
@@ -146,7 +156,7 @@ const Camera: FC = () => {
             }
           >
             <FontAwesomeIcon className="fa-2x md:fa-1x" icon={faRandom} />
-            Random image
+            <span className="hidden md:inline-block">Random image</span>
           </button>
         </div>
       </div>

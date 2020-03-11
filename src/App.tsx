@@ -12,7 +12,7 @@ const App: FC = () => {
   return (
     <Provider store={store}>
       <div className="App h-screen text-center">
-        <h1 className="md:text-6xl text-3xl font-bold text-white text-shadow-md md:mb-3 mb-2 font-dancing">
+        <h1 className="md:text-6xl text-3xl font-bold text-white text-shadow-md md:mb-3 mb-1 font-dancing">
           The exposure triangle
         </h1>
         
