@@ -21,7 +21,7 @@ const App: FC = () => {
         <Footer />
 
         <a 
-          href="https://github.com/cdmoro/camera-helper-react" 
+          href="https://github.com/cdmoro/camera-helper" 
           className="github-corner" 
           aria-label="View source on GitHub"
           target="_blank"

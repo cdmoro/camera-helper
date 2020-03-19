@@ -1,5 +1,5 @@
 {
-  "name": "camera-helper-react",
+  "name": "camera-helper",
   "version": "0.1.0",
   "homepage": "./",
   "private": true,
@@ -24,12 +24,12 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/index.css",
-    "watch:css": "postcss src/styles/tailwind.css -o src/styles/index.css -w",
     "start": "npm run watch:css & react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/index.css --env production",
+    "watch:css": "postcss src/styles/tailwind.css -o src/styles/index.css -w",
     "deploy": "./deploy.sh"
   },
   "eslintConfig": {
@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
     "autoprefixer": "^9.7.4",
     "postcss-cli": "^7.1.0",
     "tailwindcss": "^1.2.0",
