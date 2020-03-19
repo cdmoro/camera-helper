@@ -479,11 +479,6 @@ img {
   border-bottom: 0;
 }
 
-.camera__top {
-  -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-          clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
-}
-
 .level {
   width: 12.1rem;
   height: 49px;
@@ -602,10 +597,6 @@ button {
   background-attachment: fixed;
 }
 
-.bg-black {
-  background-color: #000;
-}
-
 .bg-white {
   background-color: #fff;
 }
@@ -652,11 +643,6 @@ button {
 
 .rounded-lg {
   border-radius: 0.5rem;
-}
-
-.rounded-t-lg {
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
 }
 
 .border {
@@ -730,10 +716,6 @@ button {
   height: 1rem;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
 .h-full {
   height: 100%;
 }
@@ -781,8 +763,8 @@ button {
   margin-bottom: 1rem;
 }
 
-.ml-20 {
-  margin-left: 5rem;
+.object-cover {
+  object-fit: cover;
 }
 
 .opacity-50 {
@@ -929,10 +911,6 @@ button {
 
 .w-3 {
   width: 0.75rem;
-}
-
-.w-16 {
-  width: 4rem;
 }
 
 .w-10\/12 {

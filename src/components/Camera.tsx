@@ -52,9 +52,6 @@ const Camera: FC = () => {
     return (
       <div className="camera-container">
         <div className="camera mx-auto" style={{ maxWidth: 573 }}>
-          {/* <div className="camera__top bg-gray-800 rounded-t-lg ml-20 flex justify-center items-center" style={{ width: 160, height: 60 }}>
-                    <div className="rounded-md bg-black w-16 h-10"></div>
-                </div> */}
           <div className="camera__body md:bg-gray-800 p-4 md:pt-4 pt-0 rounded-lg">
             <div className="camera__body-frame flex flex-col md:flex-row bg-white md:bg-transparent rounded-sm shadow-sm">
               <div className="camera__screen-frame md:border-2 border-1 border-black md:bg-gray-900 md:rounded-md rounded-sm p-4 pb-0 md:pb-4">
@@ -63,17 +60,15 @@ const Camera: FC = () => {
                   style={{ width: 300, height: 225 }}
                 >
                   <img
+                    className="h-full w-full object-cover"
                     src={image}
                     alt="Camera screen preview"
                     style={{
                       filter: `brightness(${brightness}) blur(${aperture / 9}px)`,
                     }}
-                    // style={{
-                    //   filter: `brightness(${brightness}) blur(${((shutter * 3) / 9)}px)`
-                    // }}
                   />
                   <img
-                    className="absolute top-0 transition ease-in-out duration-100"
+                    className="absolute top-0 h-full w-full object-cover transition ease-in-out duration-100"
                     src={image}
                     alt="Shutter phantom effect"
                     style={{
