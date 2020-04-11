@@ -7,15 +7,9 @@ interface Props {
 const Grid: FC<Props> = ({ show }) => {
     return show ?
         (
-            <div className="grid rounded-sm overflow-hidden grid-cols-3 grid-rows-3 absolute w-full h-full top-0">
-                { [...Array(9)].map((item, i) => {
-                    return (
-                        <div 
-                            className="border border-gray-100 opacity-50"
-                            key={i}
-                        />
-                    )
-                }) }
+            <div className="absolute inset-0">
+                <div className="absolute h-full border-l border-r border-gray-100 opacity-50" style={{ left: '33.33%', width: '33.33%' }}></div>
+                <div className="absolute w-full border-t border-b border-gray-100 opacity-50" style={{ top: '33.33%', height: '33.33%' }}></div>
             </div>
         )
         : null

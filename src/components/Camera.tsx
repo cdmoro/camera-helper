@@ -51,16 +51,16 @@ const Camera: FC = () => {
 
     return (
       <div className="camera-container">
-        <div className="camera mx-auto" style={{ maxWidth: 573 }}>
-          <div className="camera__body md:bg-gray-800 p-4 md:pt-4 pt-0 rounded-lg">
-            <div className="camera__body-frame flex flex-col md:flex-row bg-white md:bg-transparent rounded-sm shadow-sm">
-              <div className="camera__screen-frame md:border-2 border-1 border-black md:bg-gray-900 md:rounded-md rounded-sm p-4 pb-0 md:pb-4">
+        <div className="mx-auto camera" style={{ maxWidth: 573 }}>
+          <div className="p-4 pt-0 rounded-lg camera__body md:pt-4">
+            <div className="relative flex flex-col camera__body-frame md:flex-row">
+              <div className="relative p-3 transition-transform duration-200 ease-in-out bg-gray-200 rounded-md camera__screen-frame">
                 <div
-                  className="camera__screen overflow-hidden relative rounded-sm mx-auto"
+                  className="relative mx-auto overflow-hidden rounded-sm camera__screen"
                   style={{ width: 300, height: 225 }}
                 >
                   <img
-                    className="h-full w-full object-cover"
+                    className="object-cover w-full h-full"
                     src={image}
                     alt="Camera screen preview"
                     style={{
@@ -68,7 +68,7 @@ const Camera: FC = () => {
                     }}
                   />
                   <img
-                    className="absolute top-0 h-full w-full object-cover transition ease-in-out duration-100"
+                    className="absolute top-0 object-cover w-full h-full transition duration-100 ease-in-out"
                     src={image}
                     alt="Shutter phantom effect"
                     style={{
@@ -78,7 +78,7 @@ const Camera: FC = () => {
                     }}
                   />
                   <img
-                    className="absolute h-full w-full top-0"
+                    className="absolute top-0 w-full h-full"
                     src={noise}
                     alt="Noise"
                     style={{
@@ -87,23 +87,22 @@ const Camera: FC = () => {
                   />
                   <Grid show={showGrid} />
                 </div>
+                <Level />
               </div>
 
-              <div className="camera__controls md:ml-3 text-left flex flex-col">
+              <div className="flex flex-col text-left camera__controls md:ml-3">
 
-                <div className="text-white md:mb-2 mt-3 md:mt-0 text-sm md:text-base hidden md:block">
+                <div className="hidden mt-3 text-sm text-white md:mb-2 md:mt-0 md:text-base md:block">
                   <p>In no way does this page try to be accurate about photography.</p>
                   <p>I made it for educational purposes and for those who want to understand how to take a good picture.</p>
                 </div>
-
-                <Level/>
               </div>
             </div>
           </div>
         </div>
 
         <div 
-          className="border-t-2 border-purple-600 md:border-none fixed bottom-0 flex left-0 right-0 bg-white justify-around md:static md:bg-transparent md:shadow-none md:justify-center md:mt-3 p-2 md:p-0 z-10 md:z-0"
+          className="fixed bottom-0 left-0 right-0 z-10 flex justify-around p-2 bg-white border-t-2 border-purple-600 md:border-none md:static md:bg-transparent md:shadow-none md:justify-center md:mt-3 md:p-0 md:z-0"
         >
 
           <button
