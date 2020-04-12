@@ -37,6 +37,10 @@
     border-bottom: 0;
 }
 
+.camera__body {
+    perspective: 30px;
+}
+
 .camera__top {
     clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }

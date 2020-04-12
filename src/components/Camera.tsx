@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, ChangeEvent } from 'react';
+import React, { FC, useState, useEffect, ChangeEvent, useRef } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFolderOpen, faCamera, faRandom, faBorderAll, faBorderNone } from "@fortawesome/free-solid-svg-icons"
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,7 @@ import Grid from './Grid';
 import { AppState, SET_BRIGHTNESS, SET_CORRECTION } from '../redux';
 import noise from '../assets/noise.png';
 import Level from './Level';
+import { useMouseRotation } from '../hooks/useMouseRotation';
 
 const Camera: FC = () => {
     const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const Camera: FC = () => {
       aperture: state.aperture,
       shutter: state.shutter
     }))
+    const photoFrame = useRef(null)
 
     useEffect(() => {
       setImage('https://picsum.photos/300/225')
@@ -49,12 +51,17 @@ const Camera: FC = () => {
         setImage(URL.createObjectURL(img))
     }
 
+    useMouseRotation(photoFrame);
+
     return (
       <div className="camera-container">
         <div className="mx-auto camera" style={{ maxWidth: 573 }}>
           <div className="p-4 pt-0 rounded-lg camera__body md:pt-4">
-            <div className="relative flex flex-col camera__body-frame md:flex-row">
-              <div className="relative p-3 transition-transform duration-200 ease-in-out bg-gray-200 rounded-md camera__screen-frame">
+            <div 
+              className="inline-flex transition-transform duration-150 ease-in-out camera__body-frame"
+              ref={photoFrame}
+            >
+              <div className="relative p-3 transition-transform duration-500 ease-linear bg-gray-200 rounded-md camera__screen-frame">
                 <div
                   className="relative mx-auto overflow-hidden rounded-sm camera__screen"
                   style={{ width: 300, height: 225 }}
@@ -90,13 +97,13 @@ const Camera: FC = () => {
                 <Level />
               </div>
 
-              <div className="flex flex-col text-left camera__controls md:ml-3">
+              {/* <div className="flex flex-col text-left camera__controls md:ml-3">
 
                 <div className="hidden mt-3 text-sm text-white md:mb-2 md:mt-0 md:text-base md:block">
                   <p>In no way does this page try to be accurate about photography.</p>
                   <p>I made it for educational purposes and for those who want to understand how to take a good picture.</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
